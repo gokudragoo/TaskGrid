@@ -1,8 +1,8 @@
-import { HardhatUserConfig } from "hardhat/config";
-import "@nomicfoundation/hardhat-toolbox";
-import "dotenv/config";
+require("@nomicfoundation/hardhat-toolbox");
+require("dotenv").config();
 
-const config: HardhatUserConfig = {
+/** @type import('hardhat/config').HardhatUserConfig */
+module.exports = {
   solidity: "0.8.20",
   paths: {
     sources: "contracts",
@@ -21,7 +21,5 @@ const config: HardhatUserConfig = {
     apiKey: process.env.POLYGONSCAN_KEY || "",
   },
 };
-
-export default config;
 
 
