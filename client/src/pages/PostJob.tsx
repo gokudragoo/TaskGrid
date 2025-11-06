@@ -17,6 +17,8 @@ import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
 import { X, Plus, DollarSign, Calendar, Zap } from "lucide-react";
 import { useLocation } from "wouter";
+import { useEffect } from "react";
+import { requireAuthRedirect } from "@/lib/auth";
 
 const jobFormSchema = insertJobSchema.extend({
   clientId: z.string().optional(),
@@ -40,6 +42,7 @@ const suggestedSkills = [
 
 export default function PostJob() {
   const [, setLocation] = useLocation();
+  useEffect(() => { requireAuthRedirect(setLocation); }, []);
   const { toast } = useToast();
   const queryClient = useQueryClient();
   const [skillInput, setSkillInput] = useState("");
