@@ -13,6 +13,7 @@ import Dashboard from "@/pages/Dashboard";
 import Profile from "@/pages/Profile";
 import FreelancerOnboarding from "@/pages/FreelancerOnboarding";
 import PosterOnboarding from "@/pages/PosterOnboarding";
+import Auth from "@/pages/Auth";
 
 function Router() {
   return (
@@ -25,6 +26,7 @@ function Router() {
       <Route path="/profile/:wallet?" component={Profile} />
       <Route path="/onboarding/freelancer" component={FreelancerOnboarding} />
       <Route path="/onboarding/poster" component={PosterOnboarding} />
+      <Route path="/auth" component={Auth} />
       <Route component={NotFound} />
     </Switch>
   );
