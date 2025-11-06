@@ -14,8 +14,13 @@ import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
 import type { Job, User, Application } from "@shared/schema";
+import { useEffect } from "react";
+import { useLocation } from "wouter";
+import { requireAuthRedirect } from "@/lib/auth";
 
 export default function JobDetails() {
+  const [, setLocation] = useLocation();
+  useEffect(() => { requireAuthRedirect(setLocation); }, []);
   const [, params] = useRoute("/jobs/:id");
   const { toast } = useToast();
   const queryClient = useQueryClient();
