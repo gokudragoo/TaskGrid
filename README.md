@@ -41,12 +41,6 @@ Note: Email-to-role is enforced on the client using localStorage (one email cann
 ## Local development
 - Install: `npm install`
 - Run dev server: `npm run dev`
-
-## Roadmap (short)
-- Replace localStorage auth with backend user model (email + role)
-- Connect real wallet provider (MetaMask/WalletConnect)
-- Integrate escrow contract on Polygon testnet
-- AI resume generation + AI job matching
-
+ 
 
 TaskGridEscrow deployed at: 0xE1517864005fae94974A56BEc337F4aA63f60867
