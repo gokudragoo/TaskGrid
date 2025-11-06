@@ -17,8 +17,13 @@ import {
 import { Link } from "wouter";
 import { useQuery } from "@tanstack/react-query";
 import type { Job, User, WorkNft } from "@shared/schema";
+import { useEffect } from "react";
+import { useLocation } from "wouter";
+import { requireAuthRedirect } from "@/lib/auth";
 
 export default function Dashboard() {
+  const [, setLocation] = useLocation();
+  useEffect(() => { requireAuthRedirect(setLocation); }, []);
   const { data: stats } = useQuery({
     queryKey: ["/api/stats"],
   });
