@@ -42,7 +42,9 @@ export const getQueryFn: <T>(options: {
     } else if (Array.isArray(queryKey)) {
       url = queryKey.join("/") as string;
     }
-    const res = await fetch(url, {
+    const apiBase = (import.meta as any)?.env?.VITE_API_BASE || "";
+    const finalUrl = url.startsWith("/api") && apiBase ? `${apiBase}${url}` : url;
+    const res = await fetch(finalUrl, {
       credentials: "include",
     });
 
