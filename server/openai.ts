@@ -1,13 +1,17 @@
 import OpenAI from "openai";
 
 // the newest OpenAI model is "gpt-5" which was released August 7, 2025. do not change this unless explicitly requested by the user
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+const apiKey = process.env.OPENAI_API_KEY;
+const openai = apiKey ? new OpenAI({ apiKey }) : null;
 
 export async function matchJobsToFreelancer(
   freelancerSkills: string[],
   freelancerNfts: Array<{ jobTitle: string; rating: number }>,
   availableJobs: Array<{ id: string; title: string; description: string; skills: string[]; category: string }>
 ): Promise<{ jobId: string; score: number; reason: string }[]> {
+  if (!openai) {
+    return [];
+  }
   try {
     const response = await openai.chat.completions.create({
       model: "gpt-5",
@@ -49,6 +53,13 @@ export async function resolveDispute(
     reason: string;
   }
 ): Promise<{ recommendation: "client" | "freelancer"; reasoning: string; confidence: number }> {
+  if (!openai) {
+    return {
+      recommendation: "client",
+      reasoning: "AI disabled",
+      confidence: 0,
+    };
+  }
   try {
     const response = await openai.chat.completions.create({
       model: "gpt-5",
