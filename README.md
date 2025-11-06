@@ -1,8 +1,15 @@
-# TaskGrid
+# TaskGrid - Web3 Freelance Marketplace
 
-A decentralized freelance marketplace with built-in trust, escrow, and proof-of-work NFTs — powered by Polygon.
+<div align="center">
+  <img src="client/public/logo.svg" width="120" height="120" alt="TaskGrid Logo">
+  <h1>TaskGrid</h1>
+  <p><strong>A decentralized freelance marketplace with built-in trust, escrow, and proof-of-work NFTs — powered by Polygon</strong></p>
+  
+  [![Built on Polygon](https://img.shields.io/badge/Built%20on-Polygon-8247E5?style=for-the-badge&logo=polygon&logoColor=white)](https://polygon.technology)
+  [![Smart Contract](https://img.shields.io/badge/Smart%20Contract-Deployed-success?style=for-the-badge&logo=ethereum&logoColor=white)](https://polygonscan.com/address/0xE1517864005fae94974A56BEc337F4aA63f60867)
+</div>
 
-## What it does
+## 🧩 The Problem We're Solving
 - Trustless escrow for client-freelancer payments
 - AI-aligned profile/resume input (manual now; AI later)
 - Proof-of-Work NFTs (server placeholder) for verified work history
